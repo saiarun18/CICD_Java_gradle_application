@@ -4,6 +4,13 @@ pipeline{
         VERSION = "${env.BUILD_ID}"
     }
     stages{
+        stage("Continuous Download"){
+        steps{
+            script{
+        git branch: 'devops', url: 'https://github.com/saiarun18/CICD_Java_gradle_application.git'      
+            }
+          }
+        }
         stage("sonar quality check"){
             agent {
                 docker {
